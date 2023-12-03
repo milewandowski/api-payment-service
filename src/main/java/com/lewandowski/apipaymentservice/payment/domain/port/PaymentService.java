@@ -13,9 +13,6 @@ public final class PaymentService {
     private final PaymentGateway paymentGateway;
 
     public Order makePayment(Order order) {
-        paymentGateway.makePayment(order);
-        log.info("Payment made for order with id: {}", order.getId());
-
-        return order;
+        return paymentGateway.makePayment(order);
     }
 }

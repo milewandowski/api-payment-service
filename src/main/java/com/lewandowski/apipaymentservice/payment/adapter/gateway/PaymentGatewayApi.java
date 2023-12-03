@@ -2,17 +2,22 @@ package com.lewandowski.apipaymentservice.payment.adapter.gateway;
 
 import com.lewandowski.apipaymentservice.payment.domain.model.Order;
 import com.lewandowski.apipaymentservice.payment.domain.port.PaymentGateway;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 class PaymentGatewayApi implements PaymentGateway {
 
     @Override
-    public void makePayment(Order order) {
+    public Order makePayment(Order order) {
         // Mocked payment gateway call
         try {
-            Thread.sleep(50L);
+            Thread.sleep(100L);
+            log.info("Payment made for order with id: {}", order.getId());
+            return order;
         } catch (InterruptedException e) {
+            log.error("Payment failed for order with id: {}", order.getId());
             throw new RuntimeException(e);
         }
     }

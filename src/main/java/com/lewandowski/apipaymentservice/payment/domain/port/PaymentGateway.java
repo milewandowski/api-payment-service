@@ -4,5 +4,5 @@ import com.lewandowski.apipaymentservice.payment.domain.model.Order;
 
 public interface PaymentGateway {
 
-    void makePayment(Order order);
+    Order makePayment(Order order);
 }
