@@ -12,8 +12,9 @@ class PaymentGatewayApi implements PaymentGateway {
     @Override
     public Order makePayment(Order order) {
         // Mocked payment gateway call
+        // Only for research purpose - don't do it at home pls
         try {
-            Thread.sleep(100L);
+            Thread.sleep(50L);
             log.info("Payment made for order with id: {}", order.getId());
             return order;
         } catch (InterruptedException e) {
